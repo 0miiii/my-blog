@@ -16,6 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <div className="overlays" />
       <body className={inter.className}>
         <Header />
         {children}
