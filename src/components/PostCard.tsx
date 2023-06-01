@@ -13,9 +13,9 @@ interface Props {
 
 const PostCard: React.FC<Props> = ({ post }) => {
   return (
-    <article className="flex flex-col gap-y-2.5 border hover:bg-gray-400">
+    <article className="flex flex-col justify-between h-36 border-b hover:bg-gray-400">
       <Link href="#">
-        <h1>{post.title}</h1>
+        <h1 className="font-bold text-2xl mb-1.5">{post.title}</h1>
         <p className="line-clamp-3">{post.content}</p>
       </Link>
       <div className="flex justify-between">
