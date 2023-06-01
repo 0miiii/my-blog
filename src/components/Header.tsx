@@ -5,14 +5,20 @@ const Header = () => {
   return (
     <header className="flex justify-between max-w-3xl mx-auto">
       <h1>
-        <Link href="#">YeongMin.com</Link>
+        <Link href="/">YeongMin.com</Link>
       </h1>
-      <ul>
-        <li className="flex gap-2.5">
-          <Link href="#">posts</Link>
-          <Link href="#">about</Link>
-          <Link href="#">portfolios</Link>
-          <Link href="#">contact</Link>
+      <ul className="flex gap-2.5">
+        <li>
+          <Link href="/posts">posts</Link>
+        </li>
+        <li>
+          <Link href="/about">about</Link>
+        </li>
+        <li>
+          <Link href="/portfolios">portfolios</Link>
+        </li>
+        <li>
+          <Link href="/contact">contact</Link>
         </li>
       </ul>
     </header>
