@@ -1,15 +1,20 @@
 import React from "react";
 
-interface Props {}
+interface Props {
+  categories: string[];
+}
 
-const CategorySelect: React.FC<Props> = () => {
+const CategorySelect: React.FC<Props> = ({ categories }) => {
   return (
-    <select id="category" name="category">
-      <option value="">카테고리</option>
-      <option value="apple">사과</option>
-      <option value="banana">바나나</option>
-      <option value="orange">오렌지</option>
-      <option value="grape">포도</option>
+    <select className="text-black w-48 p-2 rounded">
+      <option disabled selected className="disabled:hidden">
+        카테고리
+      </option>
+      {categories.map((category) => (
+        <option key={category} value={category}>
+          {category}
+        </option>
+      ))}
     </select>
   );
 };
