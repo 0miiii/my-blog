@@ -1,31 +1,23 @@
-import PostCard from "@/components/PostCard";
+import PostList from "@/components/PostList";
 import CategorySelect from "@/components/CategorySelect";
 import SearchInput from "@/components/SearchInput";
-
-const post = {
-  title: "테스트테스트테스트테스트테스트",
-  content:
-    "테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트테스트",
-  category: "테스트",
-  date: "2023-06-01",
-  path: "test",
-};
+import { getAllPosts } from "@/services/post";
 
 const categories = ["a", "b", "c", "d"];
 
 const PostsPage = () => {
+  const posts = getAllPosts();
   return (
-    <main className="max-w-3xl mx-auto">
-      <div className="flex justify-between">
+    <>
+      <div className="flex justify-between mb-4 gap-5">
         <CategorySelect categories={categories} />
         <SearchInput />
       </div>
-      <div>9개의 포스팅이 있습니다.</div>
-      <div>
-        <PostCard post={post} />
-        <PostCard post={post} />
+      <div className="text-gray-500 mb-2">
+        {posts.length}개의 포스팅이 있습니다.
       </div>
-    </main>
+      <PostList posts={posts} />
+    </>
   );
 };
 
