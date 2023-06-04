@@ -1,23 +1,23 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const hasScroll = () => {
   if (typeof window === "undefined") return false;
   const element = document.documentElement;
   const hasVerticalScrollbar = element.scrollHeight > element.clientHeight;
-  console.log("scrollHeight", element.scrollHeight);
-  console.log("clientHeight", element.clientHeight);
   return hasVerticalScrollbar;
 };
 
 const Footer = () => {
+  const pathname = usePathname();
   const [hasVerticalScroll, setHasVerticalScroll] = useState(false);
 
   useEffect(() => {
     setHasVerticalScroll(hasScroll());
     console.log(hasScroll());
-  }, [hasVerticalScroll]);
+  }, [pathname]);
 
   return (
     <footer
