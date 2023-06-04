@@ -1,7 +1,10 @@
+"use client";
+
 import React from "react";
 import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { dark } from "react-syntax-highlighter/dist/cjs/styles/prism";
+import { materialDark } from "react-syntax-highlighter/dist/cjs/styles/prism";
 
 interface Props {
   markdown: string;
@@ -10,20 +13,22 @@ interface Props {
 const MarkdownViewer: React.FC<Props> = ({ markdown }) => {
   return (
     <ReactMarkdown
+      className="prose"
+      remarkPlugins={[remarkGfm]}
       components={{
-        code({ node, inline, className, children, ...props }) {
+        code({ inline, className, children, ...props }) {
           const match = /language-(\w+)/.exec(className || "");
           return !inline && match ? (
             <SyntaxHighlighter
-              {...props}
-              style={dark}
               language={match[1]}
               PreTag="div"
+              {...props}
+              style={materialDark}
             >
               {String(children).replace(/\n$/, "")}
             </SyntaxHighlighter>
           ) : (
-            <code {...props} className={className}>
+            <code className={className} {...props}>
               {children}
             </code>
           );
