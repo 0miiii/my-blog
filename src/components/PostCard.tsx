@@ -1,26 +1,29 @@
-import Link from "next/link";
 import React from "react";
+import Link from "next/link";
+import { Post } from "@/types";
 
 interface Props {
-  post: {
-    title: string;
-    content: string;
-    category: string;
-    date: string;
-    path: string;
-  };
+  post: Post;
 }
 
 const PostCard: React.FC<Props> = ({ post }) => {
+  const easyToReadDate = new Date(post.date).toLocaleDateString("ko-KR", {
+    day: "numeric",
+    month: "long",
+    year: "numeric",
+  });
+
+  const detailPath = `/${post.path}`;
+
   return (
-    <article className="flex flex-col justify-between h-36 border-b hover:bg-gray-400">
-      <Link href="#">
-        <h1 className="font-bold text-2xl mb-1.5">{post.title}</h1>
-        <p className="line-clamp-3">{post.content}</p>
+    <article className="flex flex-col justify-between gap-y-4 hover:bg-gray-400 bg-white rounded-lg shadow-md p-4">
+      <Link href={detailPath}>
+        <h1 className="font-bold text-xl mb-2">{post.title}</h1>
+        <p className="line-clamp-3 text-gray-600">{post.content}</p>
       </Link>
-      <div className="flex justify-between">
-        <time>{post.date}</time>
-        <span>{post.category}</span>
+      <div className="flex justify-between items-center">
+        <time className="text-gray-500">{easyToReadDate}</time>
+        <span className="text-gray-500">{post.category}</span>
       </div>
     </article>
   );
