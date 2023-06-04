@@ -1,5 +1,6 @@
 import React from "react";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
+import MarkdownViewer from "@/components/MarkdownViewer";
 import { getPostData } from "@/services/post";
 
 interface Props {
@@ -19,9 +20,7 @@ const PostDetailPage: React.FC<Props> = ({ params }) => {
             <span className="text-gray-500">{postData.category}</span>
           </div>
         </header>
-        <ReactMarkdown className="text-gray-600">
-          {postData.content}
-        </ReactMarkdown>
+        <MarkdownViewer markdown={postData.content} />
       </article>
       <section className="mt-4">댓글</section>
     </>
