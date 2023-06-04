@@ -7,6 +7,8 @@ interface IProps {
 }
 
 const Modal: React.FC<IProps> = ({ children, onClose }) => {
+  if (typeof window === "undefined") return null;
+
   const portalElement = document.getElementById("overlays") as
     | Element
     | DocumentFragment;
