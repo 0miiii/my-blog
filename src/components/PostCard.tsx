@@ -1,9 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import { Post } from "@/types";
+import { IPost } from "@/services/post";
 
 interface Props {
-  post: Post;
+  post: IPost;
 }
 
 const PostCard: React.FC<Props> = ({ post }) => {

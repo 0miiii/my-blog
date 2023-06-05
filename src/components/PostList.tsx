@@ -1,9 +1,9 @@
 import React from "react";
 import PostCard from "./PostCard";
-import { Post } from "@/types";
+import { IPost } from "@/services/post";
 
 interface Props {
-  posts: Post[];
+  posts: IPost[];
 }
 
 const PostList: React.FC<Props> = ({ posts }) => {
