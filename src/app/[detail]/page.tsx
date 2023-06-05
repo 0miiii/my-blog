@@ -1,14 +1,13 @@
 import React from "react";
-import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import MarkdownViewer from "@/components/MarkdownViewer";
-import { getPostData } from "@/services/post";
+import { getPost } from "@/services/post";
 
 interface Props {
   params: { detail: string };
 }
 
 const PostDetailPage: React.FC<Props> = ({ params }) => {
-  const postData = getPostData(params.detail);
+  const postData = getPost(params.detail);
 
   return (
     <>
