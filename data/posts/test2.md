@@ -1,8 +1,9 @@
 ---
-id: 3
+id: 1
 title: "Getting Started with NextJS"
 date: "2023-06-03"
-category: "카테고리테스트"
+category: "개발"
+tags: ["#nodejs", "#react"]
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
