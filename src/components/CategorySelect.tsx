@@ -4,18 +4,18 @@ import React from "react";
 
 interface Props {
   categories: string[];
-  onSelect: (category: string) => void;
+  onSelect?: (category: string) => void;
 }
 
 const CategorySelect: React.FC<Props> = ({ categories, onSelect }) => {
-  const selectChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    onSelect(event.target.value);
-  };
+  // const selectChangeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
+  //   onSelect(event.target.value);
+  // };
 
   return (
     <select
       className="text-black w-full p-2 rounded bg-white border border-gray-300 focus:outline-none focus-within:ring-1 focus-within:ring-blue-500"
-      onChange={selectChangeHandler}
+      // onChange={selectChangeHandler}
     >
       <option disabled selected value="" className="disabled:hidden">
         카테고리

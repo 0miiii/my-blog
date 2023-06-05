@@ -4,7 +4,7 @@ import React from "react";
 import Image from "next/image";
 
 interface Props {
-  onSearch: (keyword: string) => void;
+  onSearch?: (keyword: string) => void;
 }
 
 const SearchInput: React.FC<Props> = ({ onSearch }) => {
@@ -12,7 +12,7 @@ const SearchInput: React.FC<Props> = ({ onSearch }) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
     const search = formData.get("search")?.toString() || "";
-    onSearch(search);
+    // onSearch(search);
   };
 
   return (
