@@ -1,8 +1,9 @@
 ---
-id: 5
-title: "javascript test"
-date: "2023-06-01"
-category: "Javascript"
+id: 4
+title: "this란 무엇인가?"
+date: "2023-06-03"
+category: "학습"
+tags: ["#javascript"]
 ---
 
 this는 자신이 속한 객체 또는 자신이 생성할 인스턴스를 가리키는 자기 참조 변수입니다.
