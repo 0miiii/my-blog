@@ -1,14 +1,9 @@
 import React from "react";
 import PortfolioCard from "./PortfolioCard";
+import { IPortfolio } from "@/services/portfolio";
 
 interface Props {
-  portfolios: {
-    id: number;
-    image: string;
-    title: string;
-    description: string;
-    url: string;
-  }[];
+  portfolios: IPortfolio[];
 }
 
 const PortfolioList: React.FC<Props> = ({ portfolios }) => {
