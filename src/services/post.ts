@@ -9,7 +9,7 @@ export interface IPost {
   category: string;
   tags: string[];
   path: string;
-  content?: string;
+  content: string;
 }
 
 const postsDirectory = path.join(process.cwd(), "data/posts");
