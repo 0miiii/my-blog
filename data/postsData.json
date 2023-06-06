@@ -1,19 +1,19 @@
 [
   {
     "id": 0,
-    "title": "Getting Started with NextJS",
-    "date": "2023-06-03",
-    "category": "개발",
-    "tags": ["#javascript", "#react"],
-    "path": "test1"
-  },
-  {
-    "id": 1,
     "title": "테스트1",
     "date": "2023-06-05",
     "category": "개발",
     "tags": ["#javascript", "#react"],
     "path": "test2"
+  },
+  {
+    "id": 1,
+    "title": "Scope는 식별자가 유효한 범위입니다.",
+    "date": "2023-06-04",
+    "category": "학습",
+    "tags": ["#javascript"],
+    "path": "scope"
   },
   {
     "id": 2,
