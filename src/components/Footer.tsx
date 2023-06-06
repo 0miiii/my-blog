@@ -16,7 +16,6 @@ const Footer = () => {
 
   useEffect(() => {
     setHasVerticalScroll(hasScroll());
-    console.log(hasScroll());
   }, [pathname]);
 
   return (
