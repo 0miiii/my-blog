@@ -1,5 +1,6 @@
 import React from "react";
 import MarkdownViewer from "@/components/MarkdownViewer";
+import Comment from "@/components/Comment";
 import { getPost } from "@/services/post";
 
 interface Props {
@@ -21,7 +22,7 @@ const PostDetailPage: React.FC<Props> = ({ params }) => {
         </header>
         <MarkdownViewer markdown={postData.content} />
       </article>
-      <section className="mt-4">댓글</section>
+      <Comment />
     </>
   );
 };
