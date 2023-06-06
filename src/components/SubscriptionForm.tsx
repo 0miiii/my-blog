@@ -14,7 +14,7 @@ const SubscriptionForm = () => {
         </Modal>
       )}
       <h2 className="text-xl font-bold mb-4">
-        구독하시고 게시글이 발행될 때 메일로 알람받으세요 😊
+        구독하시면 게시글이 발행될 때 메일로 알림을 받으실 수 있습니다. 😊
       </h2>
       <form className="flex flex-col gap-4">
         <input
