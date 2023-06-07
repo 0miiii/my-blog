@@ -1,11 +1,11 @@
 [
   {
     "id": 0,
-    "title": "테스트1",
-    "date": "2023-06-05",
-    "category": "개발",
-    "tags": ["#javascript", "#react"],
-    "path": "test2"
+    "title": "this는 함수를 호출한 객체를 가리킵니다.",
+    "date": "2023-06-03",
+    "category": "학습",
+    "tags": ["#javascript"],
+    "path": "this"
   },
   {
     "id": 1,
@@ -17,26 +17,18 @@
   },
   {
     "id": 2,
-    "title": "테스트1",
+    "title": "최신 상태를 보장하는 리액트의 함수형 업데이트",
     "date": "2023-06-05",
-    "category": "개발",
-    "tags": ["#javascript", "#react"],
-    "path": "test3"
+    "category": "학습",
+    "tags": ["#react"],
+    "path": "useState"
   },
   {
     "id": 3,
-    "title": "테스트1",
+    "title": "테스트합니다",
     "date": "2023-06-05",
-    "category": "개발",
-    "tags": ["#javascript", "#react"],
-    "path": "test4"
-  },
-  {
-    "id": 4,
-    "title": "테스트1",
-    "date": "2023-06-05",
-    "category": "개발",
-    "tags": ["#javascript", "#react"],
-    "path": "this"
+    "category": "테스트",
+    "tags": ["#react"],
+    "path": "test"
   }
 ]

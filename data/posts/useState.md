@@ -1,9 +1,9 @@
 ---
-id: 3
-title: "Getting Started with NextJS"
-date: "2023-06-03"
-category: "개발"
-tags: ["#expressjs", "#react"]
+id: 2
+title: "최신 상태를 보장하는 리액트의 함수형 업데이트"
+date: "2023-06-05"
+category: "학습"
+tags: ["#react"]
 ---
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
