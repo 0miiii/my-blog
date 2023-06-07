@@ -1,13 +1,13 @@
 [
   {
-    "id": 0,
+    "id": 2,
     "img": "",
-    "title": "BearMello",
-    "description": "캠핑장 예약 및 관리 서비스",
-    "role": "FrontEnd",
-    "teamSize": "3",
-    "stack": ["React", "Styled-components", "Redux-toolkit"],
-    "link": [{ "github": "https://github.com/codestates-seb/seb39_main_011" }]
+    "title": "my-blog",
+    "description": "학습 내용 및 경험을 정리하는 블로그입니다.",
+    "role": "FullStack",
+    "teamSize": "1",
+    "stack": ["NextJS", "Typescript", "Tailwind"],
+    "link": [{ "github": "" }, { "deploy": "" }]
   },
   {
     "id": 1,
@@ -30,5 +30,15 @@
       { "github": "https://github.com/0miiii/Qumunity" },
       { "deploy": "https://qumunity.fly.dev/" }
     ]
+  },
+  {
+    "id": 0,
+    "img": "",
+    "title": "BearMello",
+    "description": "캠핑장 예약 및 관리 서비스",
+    "role": "FrontEnd",
+    "teamSize": "3",
+    "stack": ["React", "Styled-components", "Redux-toolkit"],
+    "link": [{ "github": "https://github.com/codestates-seb/seb39_main_011" }]
   }
 ]
