@@ -30,7 +30,7 @@ NextJS 환경에서 재사용성, UX에 중점을 맞춰 개발한 모달 컴포
 
 ## 📌 컴포넌트 설명
 
-```jsx
+```tsx
 // Modal.tsx
 
 "use client";
@@ -132,7 +132,7 @@ const overlayClickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
 
 ### 4. React Portal과 NextJS
 
-```jsx
+```tsx
 ReactDOM.createPortal(전송할 요소, 전송될 곳)
 ```
 
@@ -152,7 +152,7 @@ useEffect hook을 사용하여 isOpen의 상태에 따라 ESC 키 이벤트를 �
 
 useModal 커스텀 훅은 useState 훅을 사용하여 모달의 열기와 닫기 상태를 관리합니다. 모달이 열리고 닫히는 데 필요한 함수도 제공됩니다. 이 훅을 사용하면 모달을 보다 쉽게 제어할 수 있으며 재사용이 가능합니다.
 
-```jsx
+```tsx
 "use client";
 
 import { useState } from "react";
@@ -174,7 +174,7 @@ export const useModal = () => {
 
 ## 📌 사용 예시
 
-```jsx
+```tsx
 const Test = () => {
   const { isOpen, showModalHandler, closeModalHandler } = useModal();
 
