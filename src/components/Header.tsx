@@ -14,7 +14,7 @@ const Header = () => {
   ];
 
   return (
-    <header className="w-full py-4 sticky top-0 z-50 bg-gray-800 text-white">
+    <header className="w-full py-4 sticky top-0 z-30 bg-gray-800 text-white">
       <div className="flex justify-between items-center max-w-3xl mx-auto">
         <h1 className="text-xl font-bold">
           <Link href="/">YeongMin.com</Link>
