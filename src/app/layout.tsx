@@ -18,7 +18,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className}`}>
-        <div id="overlays" />
         <Header />
         <main className="max-w-3xl mx-auto py-5">{children}</main>
         <Footer />
