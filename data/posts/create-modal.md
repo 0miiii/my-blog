@@ -100,11 +100,11 @@ export default Modal;
 
 해당 모달은 children, onClose, isOpen 속성을 받습니다.
 
-children: 모달 내부에 표시할 컨텐츠를 전달합니다.
+**children**: 모달 내부에 표시할 컨텐츠를 전달합니다.
 
-isOpen: 모달의 상태를 나타내는 boolean 값입니다. 모달의 on/off를 결정합니다.
+**isOpen**: 모달의 상태를 나타내는 boolean 값입니다. 모달의 on/off를 결정합니다.
 
-onClose: 모달을 닫는 동작을 처리하는 함수를 전달받습니다. 해당 함수는 isOpen 상태를 false로 변경하는 역할을 수행합니다.
+**onClose**: 모달을 닫는 동작을 처리하는 함수를 전달받습니다. 해당 함수는 isOpen 상태를 false로 변경하는 역할을 수행합니다.
 
 이렇게 전달되는 props들을 통해 모달 컴포넌트는 동적으로 열리고 닫히며, 내부 컨텐츠를 동적으로 변경할 수 있습니다.
 
@@ -128,7 +128,7 @@ const overlayClickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
 
 모달은 두 개의 div 요소로 구성되어 있습니다. 첫 번째 div는 모달의 배경을 담당하며, 두 번째 div는 모달의 컨텐츠를 담고 있습니다. 해당 모달은 사용자가 배경 부분을 클릭할 때에만 닫혀야 합니다. 그러나 기본적인 구현으로는 배경뿐만 아니라 컨텐츠를 클릭할 경우에도 모달이 닫혀버리는 문제가 발생합니다.
 
-이를 해결하기 위해 useRef를 사용하여 참조를 생성하고, 참조를 백그라운드 div에 할당합니다. 그리고 overlayClickHandler에서는 이벤트가 발생한 요소와 참조한 요소가 동일한지 비교하여, 동일할 경우에만 모달을 닫는 함수를 실행합니다.
+이를 해결하기 위해 `useRef`를 사용하여 참조를 생성하고, 참조를 백그라운드 div에 할당합니다. 그리고 overlayClickHandler에서는 이벤트가 발생한 요소와 참조한 요소가 동일한지 비교하여, 동일할 경우에만 모달을 닫는 함수를 실행합니다.
 
 ### 4. React Portal과 NextJS
 
@@ -142,7 +142,7 @@ ReactDOM.createPortal 메서드를 사용하여 모달을 렌더링 할 독립�
 if (typeof window === "undefined") return null;
 ```
 
-ReactDOM.createPortal 메서드를 사용하여 모달을 렌더링 할 DOM 요소를 지정해야 합니다. 그러기 위해서는 DOM 객체에 접근해야 하는데 NextJS에서는 서버 측에서 사전렌더링을 실행합니다. 이때 서버 측에서 DOM 요소에 접근을 할 수 없어 에러가 발생하게 됩니다. 이를 방지하기 위해 typeof window === "undefined"를 사용하여 서버 측에서 렌더링 할 때는 모달을 숨깁니다.
+`ReactDOM.createPortal` 메서드를 사용하여 모달을 렌더링 할 DOM 요소를 지정해야 합니다. 그러기 위해서는 DOM 객체에 접근해야 하는데 NextJS에서는 서버 측에서 사전렌더링을 실행합니다. 이때 서버 측에서 DOM 요소에 접근을 할 수 없어 에러가 발생하게 됩니다. 이를 방지하기 위해 `typeof window === "undefined"`를 사용하여 서버 측에서 렌더링 할 때는 모달을 숨깁니다.
 
 ### 5. 모달 외부 스크롤 막기, ESC 키를 통해 모달 닫기
 
