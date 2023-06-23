@@ -2,7 +2,7 @@
 id: 0
 title: "this는 함수를 호출한 객체를 가리킵니다."
 date: "2023-06-03"
-category: "학습"
+category: "study"
 tags: ["#javascript"]
 ---
 

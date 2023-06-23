@@ -2,7 +2,7 @@
 id: 1
 title: "Scope는 식별자가 유효한 범위입니다."
 date: "2023-06-04"
-category: "학습"
+category: "study"
 tags: ["#javascript"]
 ---
 

@@ -3,7 +3,7 @@
     "id": 0,
     "title": "this는 함수를 호출한 객체를 가리킵니다.",
     "date": "2023-06-03",
-    "category": "학습",
+    "category": "study",
     "tags": ["#javascript"],
     "path": "this"
   },
@@ -11,24 +11,24 @@
     "id": 1,
     "title": "Scope는 식별자가 유효한 범위입니다.",
     "date": "2023-06-04",
-    "category": "학습",
+    "category": "study",
     "tags": ["#javascript"],
     "path": "scope"
   },
   {
     "id": 2,
-    "title": "최신 상태를 보장하는 리액트의 함수형 업데이트",
-    "date": "2023-06-05",
-    "category": "학습",
-    "tags": ["#react"],
-    "path": "useState"
+    "title": "NextJS에서 react portal을 사용하여 모달만들기",
+    "date": "2023-06-18",
+    "category": "dev",
+    "tags": ["#NextJS"],
+    "path": "create-modal"
   },
   {
     "id": 3,
-    "title": "테스트합니다",
+    "title": "최신 상태를 보장하는 리액트의 함수형 업데이트",
     "date": "2023-06-05",
-    "category": "테스트",
+    "category": "study",
     "tags": ["#react"],
-    "path": "test"
+    "path": "useState"
   }
 ]

@@ -1,8 +1,8 @@
 ---
-id: 2
+id: 3
 title: "최신 상태를 보장하는 리액트의 함수형 업데이트"
 date: "2023-06-05"
-category: "학습"
+category: "study"
 tags: ["#react"]
 ---
 
