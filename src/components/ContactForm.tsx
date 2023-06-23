@@ -17,7 +17,7 @@ const ContactForm = () => {
 
   return (
     <section>
-      <Modal isOpen={isOpen} onClose={closeModalHandler}>
+      <Modal isOpen={isOpen} onClose={closeModalHandler} containerId="overlays">
         <div className="p-5">서비스 준비중입니다.</div>
       </Modal>
       <form

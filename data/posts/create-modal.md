@@ -44,7 +44,12 @@ interface IProps {
   isOpen: boolean;
 }
 
-const Modal: React.FC<IProps> = ({ children, isOpen, onClose }) => {
+const Modal: React.FC<IProps> = ({
+  children,
+  isOpen,
+  onClose,
+  containerId,
+}) => {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const overlayClickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -75,7 +80,7 @@ const Modal: React.FC<IProps> = ({ children, isOpen, onClose }) => {
 
   if (typeof window === "undefined" || !isOpen) return null;
 
-  const portalElement = document.getElementById("overlays") as Element;
+  const portalElement = document.getElementById(containerId) as Element;
 
   return ReactDOM.createPortal(
     <>
@@ -98,13 +103,15 @@ export default Modal;
 
 ### 1. Props
 
-해당 모달은 children, onClose, isOpen 속성을 받습니다.
+해당 모달은 children, onClose, isOpen, container를 props로 전달 받습니다.
 
 **children**: 모달 내부에 표시할 컨텐츠를 전달합니다.
 
 **isOpen**: 모달의 상태를 나타내는 boolean 값입니다. 모달의 on/off를 결정합니다.
 
 **onClose**: 모달을 닫는 동작을 처리하는 함수를 전달받습니다. 해당 함수는 isOpen 상태를 false로 변경하는 역할을 수행합니다.
+
+**containerId**: 모달이 렌더링될 요소의 id를 컴포넌트에 전달합니다.
 
 이렇게 전달되는 props들을 통해 모달 컴포넌트는 동적으로 열리고 닫히며, 내부 컨텐츠를 동적으로 변경할 수 있습니다.
 
