@@ -8,7 +8,7 @@ const SubscriptionForm = () => {
   const { isOpen, closeModalHandler, showModalHandler } = useModal();
   return (
     <section className="bg-white rounded-lg shadow-md p-4">
-      <Modal isOpen={isOpen} onClose={closeModalHandler} containerId="overlays">
+      <Modal isOpen={isOpen} onClose={closeModalHandler} portalElId="overlays">
         <div className="p-5">서비스 준비중입니다.</div>
       </Modal>
       <h2 className="text-xl font-bold mb-4">
