@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
+import React from "react";
 import Modal from "./Modal";
 import { useModal } from "@/hooks";
 
 const ContactForm = () => {
-  const { showModal, showModalHandler, closeModalHandler } = useModal();
+  const { isOpen, showModalHandler, closeModalHandler } = useModal();
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
@@ -17,11 +17,9 @@ const ContactForm = () => {
 
   return (
     <section>
-      {showModal && (
-        <Modal onClose={closeModalHandler}>
-          <div className="p-5">서비스 준비중입니다.</div>
-        </Modal>
-      )}
+      <Modal isOpen={isOpen} onClose={closeModalHandler}>
+        <div className="p-5">서비스 준비중입니다.</div>
+      </Modal>
       <form
         className="bg-white rounded-lg shadow-md p-4"
         onSubmit={submitHandler}

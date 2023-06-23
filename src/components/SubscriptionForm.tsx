@@ -5,14 +5,12 @@ import Modal from "./Modal";
 import { useModal } from "@/hooks";
 
 const SubscriptionForm = () => {
-  const { showModal, showModalHandler, closeModalHandler } = useModal();
+  const { isOpen, closeModalHandler, showModalHandler } = useModal();
   return (
     <section className="bg-white rounded-lg shadow-md p-4">
-      {showModal && (
-        <Modal onClose={closeModalHandler}>
-          <div className="p-5">서비스 준비중입니다.</div>
-        </Modal>
-      )}
+      <Modal isOpen={isOpen} onClose={closeModalHandler}>
+        <div className="p-5">서비스 준비중입니다.</div>
+      </Modal>
       <h2 className="text-xl font-bold mb-4">
         구독하시면 게시글이 발행될 때 메일로 알림을 받으실 수 있습니다. 😊
       </h2>

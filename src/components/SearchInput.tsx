@@ -6,7 +6,8 @@ import Modal from "./Modal";
 import { useModal } from "@/hooks";
 
 const SearchInput = () => {
-  const { showModal, closeModalHandler, showModalHandler } = useModal();
+  const { isOpen, closeModalHandler, showModalHandler } = useModal();
+
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formData = new FormData(event.currentTarget);
@@ -17,11 +18,10 @@ const SearchInput = () => {
 
   return (
     <>
-      {showModal && (
-        <Modal onClose={closeModalHandler}>
-          <div className="p-5">서비스 준비중입니다.</div>
-        </Modal>
-      )}
+      <Modal isOpen={isOpen} onClose={closeModalHandler}>
+        <div className="p-5">서비스 준비중입니다.</div>
+      </Modal>
+
       <form
         className="w-full flex gap-2 bg-white p-2 border border-gray-300 rounded focus-within:ring-1 focus-within:ring-blue-500"
         onSubmit={submitHandler}
