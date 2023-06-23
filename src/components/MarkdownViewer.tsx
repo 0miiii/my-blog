@@ -13,7 +13,7 @@ interface Props {
 const MarkdownViewer: React.FC<Props> = ({ markdown }) => {
   return (
     <ReactMarkdown
-      className="prose"
+      className="prose max-w-full"
       remarkPlugins={[remarkGfm]}
       components={{
         code({ inline, className, children, ...props }) {
