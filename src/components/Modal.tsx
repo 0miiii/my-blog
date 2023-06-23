@@ -7,10 +7,9 @@ interface IProps {
   children: React.ReactNode;
   onClose: () => void;
   isOpen: boolean;
-  portalElId: string;
 }
 
-const Modal: React.FC<IProps> = ({ children, isOpen, onClose, portalElId }) => {
+const Modal: React.FC<IProps> = ({ children, isOpen, onClose }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const overlayClickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -41,10 +40,10 @@ const Modal: React.FC<IProps> = ({ children, isOpen, onClose, portalElId }) => {
 
   if (typeof window === "undefined" || !isOpen) return null;
 
-  let portalElement = document.querySelector(`#${portalElId}`);
+  let portalElement = document.querySelector(`#overlays`);
   if (!portalElement) {
     portalElement = document.createElement("div");
-    portalElement.setAttribute("id", portalElId);
+    portalElement.setAttribute("id", "overlays");
     document.body.insertBefore(portalElement, document.body.firstChild);
   }
 

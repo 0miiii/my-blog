@@ -42,10 +42,9 @@ interface IProps {
   children: React.ReactNode;
   onClose: () => void;
   isOpen: boolean;
-  portalElId: string;
 }
 
-const Modal: React.FC<IProps> = ({ children, isOpen, onClose, portalElId }) => {
+const Modal: React.FC<IProps> = ({ children, isOpen, onClose }) => {
   const overlayRef = useRef<HTMLDivElement>(null);
 
   const overlayClickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
@@ -76,7 +75,12 @@ const Modal: React.FC<IProps> = ({ children, isOpen, onClose, portalElId }) => {
 
   if (typeof window === "undefined" || !isOpen) return null;
 
-  const portalElement = document.getElementById(portalElId) as Element;
+  let portalElement = document.querySelector(`#overlays`);
+  if (!portalElement) {
+    portalElement = document.createElement("div");
+    portalElement.setAttribute("id", "overlays");
+    document.body.insertBefore(portalElement, document.body.firstChild);
+  }
 
   return ReactDOM.createPortal(
     <>
@@ -106,8 +110,6 @@ export default Modal;
 **isOpen**: 모달의 상태를 나타내는 boolean 값입니다. 모달의 on/off를 결정합니다.
 
 **onClose**: 모달을 닫는 동작을 처리하는 함수를 전달받습니다. 해당 함수는 isOpen 상태를 false로 변경하는 역할을 수행합니다.
-
-**portalElId**: 모달이 렌더링될 요소의 id를 컴포넌트에 전달합니다.
 
 이렇게 전달되는 props들을 통해 모달 컴포넌트는 동적으로 열리고 닫히며, 내부 컨텐츠를 동적으로 변경할 수 있습니다.
 
@@ -152,7 +154,7 @@ if (typeof window === "undefined") return null;
 
 <html lang="en">
   <body className={`${inter.className}`}>
-    <div id="overlays" />
+    <div id="overlays" /> // here
     <Header />
     <main className="max-w-3xl mx-auto py-5">{children}</main>
     <Footer />
@@ -166,10 +168,10 @@ const portalElement = document.getElementById(portalElId) as Element;
 기존에는 layout에 미리 `<div id="overlays" />` 요소를 생성한 후 모달 컴포넌트에 props로 모달을 렌더링 할 요소의 id를 전달했습니다. 하지만 이와 같은 방법은 미리 요소를 만들지 않으면 사용할 수 없기 때문에 재사용성에 문제가 있어 보여 아래와 같이 컴포넌트 내에서 렌더링 할 요소를 생성하도록 수정하였습니다.
 
 ```tsx
-let portalElement = document.querySelector(`#${portalElId}`);
+let portalElement = document.querySelector(`#overlays`);
 if (!portalElement) {
   portalElement = document.createElement("div");
-  portalElement.setAttribute("id", portalElId);
+  portalElement.setAttribute("id", "overlays");
   document.body.insertBefore(portalElement, document.body.firstChild);
 }
 ```
@@ -210,7 +212,7 @@ const Test = () => {
 
   return (
     <section>
-      <Modal isOpen={isOpen} onClose={closeModalHandler}>
+      <Modal isOpen={isOpen} onClose={closeModalHandler} portalElId="overlays">
         <div className="p-5">모달 동작</div>
       </Modal>
       <button onClick={showModalHandler}>모달ON</button>
@@ -218,3 +220,5 @@ const Test = () => {
   );
 };
 ```
+
+## 📌 후기

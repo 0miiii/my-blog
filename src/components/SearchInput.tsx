@@ -18,7 +18,7 @@ const SearchInput = () => {
 
   return (
     <>
-      <Modal isOpen={isOpen} onClose={closeModalHandler} portalElId="overlays">
+      <Modal isOpen={isOpen} onClose={closeModalHandler}>
         <div className="p-5">서비스 준비중입니다.</div>
       </Modal>
 
