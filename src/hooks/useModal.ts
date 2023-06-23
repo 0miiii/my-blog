@@ -3,12 +3,15 @@
 import { useState } from "react";
 
 export const useModal = () => {
-  const [showModal, setShowModal] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
   const showModalHandler = () => {
-    setShowModal(true);
+    setIsOpen(true);
   };
+
   const closeModalHandler = () => {
-    setShowModal(false);
+    setIsOpen(false);
   };
-  return { showModal, showModalHandler, closeModalHandler };
+
+  return { isOpen, showModalHandler, closeModalHandler };
 };
