@@ -1,6 +1,6 @@
 ---
 id: 2
-title: "NextJS에서 react portal을 사용하여 모달만들기"
+title: "NextJS에서 react portal을 사용하여 모달 컴포넌트 만들기"
 date: "2023-06-18"
 category: "dev"
 tags: ["#NextJS"]
@@ -212,7 +212,7 @@ const Test = () => {
 
   return (
     <section>
-      <Modal isOpen={isOpen} onClose={closeModalHandler} portalElId="overlays">
+      <Modal isOpen={isOpen} onClose={closeModalHandler}>
         <div className="p-5">모달 동작</div>
       </Modal>
       <button onClick={showModalHandler}>모달ON</button>
