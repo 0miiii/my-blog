@@ -6,9 +6,11 @@ interface Props {
 }
 
 const TagList: React.FC<Props> = ({ tags }) => {
+  const deduplicatedTags = [...new Set(tags)];
+
   return (
     <ul className="flex gap-2">
-      {tags.map((tag) => (
+      {deduplicatedTags.map((tag) => (
         <li key={tag}>
           <Tag>{tag}</Tag>
         </li>
