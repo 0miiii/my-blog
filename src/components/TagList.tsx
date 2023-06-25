@@ -3,15 +3,16 @@ import Tag from "./Tag";
 
 interface Props {
   tags: string[];
+  onClick: (tag: string) => void;
 }
 
-const TagList: React.FC<Props> = ({ tags }) => {
+const TagList: React.FC<Props> = ({ tags, onClick }) => {
   const deduplicatedTags = [...new Set(tags)];
 
   return (
     <ul className="flex gap-2">
       {deduplicatedTags.map((tag) => (
-        <li key={tag}>
+        <li key={tag} onClick={() => onClick(tag)}>
           <Tag>{tag}</Tag>
         </li>
       ))}

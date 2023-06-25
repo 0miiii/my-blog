@@ -14,6 +14,7 @@ interface IProps {
 const FilteredPost: React.FC<IProps> = ({ posts }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
+  const [selectedTag, setSelectedTag] = useState("");
 
   const tags = posts.map((post) => post.tags).flat();
   const categories = posts.map((post) => post.category);
@@ -25,6 +26,10 @@ const FilteredPost: React.FC<IProps> = ({ posts }) => {
       filtered = filtered.filter((post) => post.category === selectedCategory);
     }
 
+    if (selectedTag !== "") {
+      filtered = filtered.filter((post) => post.tags.includes(selectedTag));
+    }
+
     if (searchQuery !== "") {
       filtered = filtered.filter(
         (post) =>
@@ -33,7 +38,7 @@ const FilteredPost: React.FC<IProps> = ({ posts }) => {
     }
 
     return filtered;
-  }, [posts, selectedCategory, searchQuery]);
+  }, [posts, selectedCategory, searchQuery, selectedTag]);
 
   const numberOfPosts = `${filteredPosts.length}개의 포스팅이 있습니다.`;
 
@@ -43,6 +48,10 @@ const FilteredPost: React.FC<IProps> = ({ posts }) => {
 
   const changeSearchHandler = (search: string) => {
     setSearchQuery(search);
+  };
+
+  const clickTagHandler = (tag: string) => {
+    setSelectedTag(tag);
   };
 
   return (
@@ -55,7 +64,7 @@ const FilteredPost: React.FC<IProps> = ({ posts }) => {
         />
         <SearchBar onSearch={changeSearchHandler} />
       </div>
-      <TagList tags={tags} />
+      <TagList tags={tags} onClick={clickTagHandler} />
       <div className="text-gray-500 mt-4 mb-2">{numberOfPosts}</div>
       <PostList posts={filteredPosts} />
     </>
