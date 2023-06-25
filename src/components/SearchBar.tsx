@@ -5,7 +5,7 @@ import Image from "next/image";
 import Modal from "./Modal";
 import { useModal } from "@/hooks";
 
-const SearchInput = () => {
+const SearchBar = () => {
   const { isOpen, closeModalHandler, showModalHandler } = useModal();
 
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
@@ -37,4 +37,4 @@ const SearchInput = () => {
   );
 };
 
-export default SearchInput;
+export default SearchBar;
