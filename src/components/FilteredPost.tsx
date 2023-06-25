@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import PostList from "./PostList";
 import Category from "./Category";
 import SearchBar from "./SearchBar";
@@ -13,18 +13,36 @@ interface IProps {
 
 const FilteredPost: React.FC<IProps> = ({ posts }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [searchQuery, setSearchQuery] = useState("");
+
   const tags = posts.map((post) => post.tags).flat();
   const categories = posts.map((post) => post.category);
-  const filteredPosts = posts.filter((post) => {
-    if (selectedCategory === "All") {
-      return true;
+
+  const filteredPosts = useMemo(() => {
+    let filtered = posts;
+
+    if (selectedCategory !== "All") {
+      filtered = filtered.filter((post) => post.category === selectedCategory);
     }
-    return post.category === selectedCategory;
-  });
+
+    if (searchQuery !== "") {
+      filtered = filtered.filter(
+        (post) =>
+          post.title.includes(searchQuery) || post.content.includes(searchQuery)
+      );
+    }
+
+    return filtered;
+  }, [posts, selectedCategory, searchQuery]);
+
   const numberOfPosts = `${filteredPosts.length}개의 포스팅이 있습니다.`;
 
   const changeCategoryHandler = (category: string) => {
     setSelectedCategory(category);
+  };
+
+  const changeSearchHandler = (search: string) => {
+    setSearchQuery(search);
   };
 
   return (
@@ -35,7 +53,7 @@ const FilteredPost: React.FC<IProps> = ({ posts }) => {
           selectedValue={selectedCategory}
           onChange={changeCategoryHandler}
         />
-        <SearchBar />
+        <SearchBar onSearch={changeSearchHandler} />
       </div>
       <TagList tags={tags} />
       <div className="text-gray-500 mt-4 mb-2">{numberOfPosts}</div>
