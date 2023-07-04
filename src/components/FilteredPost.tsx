@@ -65,7 +65,7 @@ const FilteredPost: React.FC<IProps> = ({ posts }) => {
         <SearchBar onSearch={changeSearchHandler} />
       </div>
       <TagList tags={tags} onClick={clickTagHandler} />
-      <div className="text-gray-500 mt-4 mb-2">{numberOfPosts}</div>
+      <p className="text-gray-500 mt-4 mb-2">{numberOfPosts}</p>
       <PostList posts={filteredPosts} />
     </>
   );
