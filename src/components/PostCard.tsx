@@ -16,7 +16,7 @@ const PostCard: React.FC<Props> = ({ post }) => {
   const detailPath = `/${post.path}`;
 
   return (
-    <article className="flex flex-col justify-between gap-y-4 hover:bg-gray-400 bg-white rounded-lg shadow-md p-4">
+    <article className="flex flex-col justify-between gap-y-4 hover:bg-gray-400 transition duration-300 bg-white rounded-lg shadow-md p-4">
       <Link href={detailPath}>
         <h1 className="font-bold text-xl mb-2">{post.title}</h1>
         <p className="line-clamp-3 text-gray-600">{post.content}</p>
