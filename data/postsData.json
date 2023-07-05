@@ -54,5 +54,21 @@
     "category": "dev",
     "tags": ["#tailwind"],
     "path": "tailwind-review"
+  },
+  {
+    "id": 7,
+    "title": "네트워크 알아보기",
+    "date": "2023-06-22",
+    "category": "study",
+    "tags": ["#network"],
+    "path": "network"
+  },
+  {
+    "id": 8,
+    "title": "좋은 컴포넌트 만들기",
+    "date": "2023-06-22",
+    "category": "study",
+    "tags": ["#react"],
+    "path": "good-component"
   }
 ]
