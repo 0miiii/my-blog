@@ -1,4 +1,5 @@
 import React from "react";
+import Hero from "@/components/Hero";
 import TimeLineList from "@/components/TimeLineList";
 
 const dummy_careers = [
@@ -19,6 +20,7 @@ const dummy_careers = [
 const AboutPage = () => {
   return (
     <>
+      <Hero />
       <section className="mb-8">
         <h1 className="text-2xl font-bold mb-2">Career</h1>
         <TimeLineList timeline={dummy_careers} />
