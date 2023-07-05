@@ -103,7 +103,7 @@ export default Modal;
 
 ### 1. Props
 
-해당 모달은 children, onClose, isOpen, container를 props로 전달 받습니다.
+해당 모달은 children, onClose, isOpen props로 전달 받습니다.
 
 **children**: 모달 내부에 표시할 컨텐츠를 전달합니다.
 
@@ -131,7 +131,7 @@ const overlayClickHandler = (event: React.MouseEvent<HTMLDivElement>) => {
 };
 ```
 
-모달은 두 개의 div 요소로 구성되어 있습니다. 첫 번째 div는 모달의 배경을 담당하며, 두 번째 div는 모달의 컨텐츠를 담고 있습니다. 해당 모달은 사용자가 배경 부분을 클릭할 때에만 닫혀야 합니다. 그러나 기본적인 구현으로는 배경뿐만 아니라 컨텐츠를 클릭할 경우에도 모달이 닫혀버리는 문제가 발생합니다.
+모달은 두 개의 div 요소로 구성되어 있습니다. 첫 번째 div는 모달의 배경을 담당하며, 두 번째 div는 모달의 컨텐츠를 담고 있습니다. 해당 모달은 사용자가 배경 부분을 클릭할 때에만 닫혀야 합니다. 만약 위의 if문이 없고 onClose 함수만 호출한다면 배경뿐만 아니라 컨텐츠를 클릭할 경우에도 모달이 닫혀버리는 문제가 발생합니다.
 
 이를 해결하기 위해 `useRef`를 사용하여 참조를 생성하고, 참조를 백그라운드 div에 할당합니다. 그리고 overlayClickHandler에서는 이벤트가 발생한 요소와 참조한 요소가 동일한지 비교하여, 동일할 경우에만 모달을 닫는 함수를 실행합니다.
 
