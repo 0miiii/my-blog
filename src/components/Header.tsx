@@ -7,7 +7,6 @@ import { usePathname } from "next/navigation";
 const Header = () => {
   const pathname = usePathname();
   const links = [
-    { name: "Posts", path: "/posts" },
     { name: "About", path: "/about" },
     { name: "Portfolios", path: "/portfolios" },
     { name: "Contact", path: "/contact" },
