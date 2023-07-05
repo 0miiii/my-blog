@@ -25,6 +25,7 @@ const SearchBar: React.FC<IProps> = ({ onSearch }) => {
         name="search"
         type="search"
         className="w-full text-black p-1 focus:outline-none"
+        placeholder="검색어를 입력해주세요"
         ref={inputRef}
       />
     </form>
