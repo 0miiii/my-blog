@@ -14,7 +14,7 @@ interface IProps {
 const FilteredPost: React.FC<IProps> = ({ posts }) => {
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [searchQuery, setSearchQuery] = useState("");
-  const [selectedTag, setSelectedTag] = useState("");
+  const [selectedTag, setSelectedTag] = useState<string[]>([]);
 
   const tags = posts.map((post) => post.tags).flat();
   const categories = posts.map((post) => post.category);
@@ -26,8 +26,15 @@ const FilteredPost: React.FC<IProps> = ({ posts }) => {
       filtered = filtered.filter((post) => post.category === selectedCategory);
     }
 
-    if (selectedTag !== "") {
-      filtered = filtered.filter((post) => post.tags.includes(selectedTag));
+    if (selectedTag.length !== 0) {
+      let arr = [];
+      for (let i = 0; i < selectedTag.length; i++) {
+        const filteredArr = filtered.filter((post) =>
+          post.tags.includes(selectedTag[i])
+        );
+        arr.push(...filteredArr);
+      }
+      filtered = [...new Set(arr)];
     }
 
     if (searchQuery !== "") {
@@ -51,7 +58,16 @@ const FilteredPost: React.FC<IProps> = ({ posts }) => {
   };
 
   const clickTagHandler = (tag: string) => {
-    setSelectedTag(tag);
+    if (selectedTag.includes(tag)) {
+      setSelectedTag((prevSelectTags) => {
+        return prevSelectTags.filter((prevSelectTag) => prevSelectTag !== tag);
+      });
+      return;
+    }
+
+    setSelectedTag((prevSelectTags) => {
+      return [...prevSelectTags, tag];
+    });
   };
 
   return (
