@@ -12,8 +12,8 @@ const TagList: React.FC<Props> = ({ tags, onClick }) => {
   return (
     <ul className="flex gap-2">
       {deduplicatedTags.map((tag) => (
-        <li key={tag} onClick={() => onClick(tag)}>
-          <Tag>{tag}</Tag>
+        <li key={tag}>
+          <Tag onClick={onClick}>{tag}</Tag>
         </li>
       ))}
     </ul>
