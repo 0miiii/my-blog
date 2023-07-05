@@ -1,11 +1,8 @@
-import Hero from "@/components/Hero";
-import SubscriptionForm from "@/components/SubscriptionForm";
+import FilteredPost from "@/components/FilteredPost";
+import { getAllPosts } from "@/services/post";
 
 export default function Home() {
-  return (
-    <>
-      <Hero />
-      <SubscriptionForm />
-    </>
-  );
+  const posts = getAllPosts();
+
+  return <FilteredPost posts={posts} />;
 }
